@@ -1,0 +1,205 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck
+dpkg-buildpackage: info: source package bzip2
+dpkg-buildpackage: info: source version 1.0.6-9
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Anthony Fok <foka@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+dpkg-source: info: using options from bzip2-1.0.6/debian/source/options: --compression=bzip2 --compression-level=9
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+# dh_auto_clean calls `make distclean' which removes manual.{html,ps,pdf},
+# so we'd need to rebuild them.  Call `make clean' instead.
+[ -f Makefile ] && /usr/bin/make clean
+make[2]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+rm -f *.o *.sho libbz2.a libbz2.so* bzip2 bzip2recover \
+sample1.rb2 sample2.rb2 sample3.rb2 \
+sample1.tst sample2.tst sample3.tst
+make[2]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   dh_clean
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   debian/rules override_dh_auto_build-arch
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+dh_auto_build -- libbz2.a bzip2 bzip2recover \
+  'CC=gcc' 'CFLAGS=-g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT' 'LDFLAGS=-Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--stats'
+	make V=1 -j8 "INSTALL=install --strip-program=true" libbz2.a bzip2 bzip2recover CC=gcc "CFLAGS=-g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline" "CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT" "LDFLAGS=-Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--stats"
+make[2]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o blocksort.o -c blocksort.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o huffman.o -c huffman.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o crctable.o -c crctable.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o randtable.o -c randtable.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o compress.o -c compress.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o decompress.o -c decompress.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o bzlib.o -c bzlib.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o blocksort.sho -c blocksort.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o huffman.sho -c huffman.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o crctable.sho -c crctable.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o randtable.sho -c randtable.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o compress.sho -c compress.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o decompress.sho -c decompress.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -fPIC -o bzlib.sho -c bzlib.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o bzip2.o -c bzip2.c
+bzip2.c: In function ‘testStream’:
+bzip2.c:557:37: warning: variable ‘nread’ set but not used [-Wunused-but-set-variable]
+    Int32   bzerr, bzerr_dummy, ret, nread, streamNo, i;
+                                     ^~~~~
+bzip2.c: In function ‘applySavedFileAttrToOutputFile’:
+bzip2.c:1073:11: warning: ignoring return value of ‘fchown’, declared with attribute warn_unused_result [-Wunused-result]
+    (void) fchown ( fd, fileMetaInfo.st_uid, fileMetaInfo.st_gid );
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -o bzip2recover.o -c bzip2recover.c
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--stats -o bzip2recover bzip2recover.o
+Memory region         Used Size  Region Size  %age Used/usr/bin/ld: removing unused section '.rodata.cst4' in file '/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o'
+/usr/bin/ld: removing unused section '.data' in file '/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o'
+/usr/bin/ld: total time in link: 0.054100
+
+rm -f libbz2.a
+ar cq libbz2.a blocksort.o huffman.o crctable.o randtable.o compress.o decompress.o bzlib.o
+ranlib libbz2.a
+gcc -o libbz2.so.1.0.4 -shared -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--stats \
+  -Wl,-soname,libbz2.so.1.0 blocksort.sho huffman.sho crctable.sho randtable.sho compress.sho decompress.sho bzlib.sho -lc
+Memory region         Used Size  Region Size  %age Used/usr/bin/ld: total time in link: 0.061116
+
+ln -sf libbz2.so.1.0.4 libbz2.so.1.0
+ln -sf libbz2.so.1.0 libbz2.so
+gcc -g -O2 -fdebug-prefix-map=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6=. -fstack-protector-strong -Wformat -Werror=format-security -march=native -pipe -Wall -Winline -Wdate-time -D_FORTIFY_SOURCE=2 -D_REENTRANT -Wl,-z,relro -Wl,-z,now -Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--stats -o bzip2 bzip2.o -L. -lbz2
+Memory region         Used Size  Region Size  %age Used/usr/bin/ld: removing unused section '.rodata.cst4' in file '/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o'
+/usr/bin/ld: removing unused section '.data' in file '/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o'
+/usr/bin/ld: total time in link: 0.051854
+
+make[2]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   debian/rules override_dh_auto_build-indep
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+docbook2x-texi \
+  --string-param directory-category=Development \
+  --string-param directory-description='A program and library for data compression' \
+  --string-param output-file=manual \
+  --to-stdout manual.xml > manual.texi
+makeinfo -o bzip2.info manual.texi
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+   debian/rules override_dh_auto_install-arch
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+dh_auto_install -- PREFIX=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp
+	make V=1 -j8 install DESTDIR=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp AM_UPDATE_INFO_DIR=no "INSTALL=install --strip-program=true" PREFIX=/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp
+make[2]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+if ( test ! -d /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin ) ; then mkdir -p /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin ; fi
+if ( test ! -d /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/lib ) ; then mkdir -p /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/lib ; fi
+if ( test ! -d /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man ) ; then mkdir -p /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man ; fi
+if ( test ! -d /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1 ) ; then mkdir -p /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1 ; fi
+if ( test ! -d /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/include ) ; then mkdir -p /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/include ; fi
+cp -f bzip2 /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2
+ln /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2 /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bunzip2
+ln /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2 /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzcat
+cp -f bzip2recover /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2recover
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bunzip2
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzcat
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzip2recover
+cp -f bzip2.1 /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzip2.1
+cp -f bzlib.h /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/include
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/include/bzlib.h
+cp -fa libbz2.a libbz2.so* /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/lib
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/lib/libbz2.a
+cp -f bzgrep /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzgrep
+ln -s -f /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzgrep /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzegrep
+ln -s -f /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzgrep /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzfgrep
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzgrep
+cp -f bzmore /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzmore
+ln -s -f /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzmore /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzless
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzmore
+cp -f bzdiff /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzdiff
+ln -s -f /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzdiff /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzcmp
+chmod a+x /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/bin/bzdiff
+cp -f bzgrep.1 bzmore.1 bzdiff.1 /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzgrep.1
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzmore.1
+chmod a+r /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzdiff.1
+echo ".so man1/bzgrep.1" > /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzegrep.1
+echo ".so man1/bzgrep.1" > /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzfgrep.1
+echo ".so man1/bzmore.1" > /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzless.1
+echo ".so man1/bzdiff.1" > /home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6/debian/tmp/man/man1/bzcmp.1
+make[2]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   debian/rules override_dh_install
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+dh_install -plibbz2-1.0 lib/libbz2.so.* lib/x86_64-linux-gnu
+dh_install -plibbz2-dev lib/libbz2.a usr/lib/x86_64-linux-gnu
+dh_install --remaining-packages
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   debian/rules override_dh_installdocs
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+dh_installdocs -plibbz2-dev --link-doc=libbz2-1.0
+dh_installdocs --remaining-packages
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   dh_installchangelogs
+   dh_installman
+   dh_installinfo
+   dh_perl
+   debian/rules override_dh_link
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+# This isn't the soname, and nothing should be looking for this file,
+# but leave it alone for now
+dh_link -plibbz2-1.0 lib/x86_64-linux-gnu/libbz2.so.1.0.4 \
+                     lib/x86_64-linux-gnu/libbz2.so.1
+dh_link -plibbz2-dev lib/x86_64-linux-gnu/libbz2.so.1.0 \
+                     usr/lib/x86_64-linux-gnu/libbz2.so
+dh_link --remaining-packages
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   dh_strip_nondeterminism
+   dh_compress
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+   dh_fixperms
+   debian/rules override_dh_missing
+make[1]: Entering directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+dh_missing --fail-missing
+make[1]: Leaving directory '/home/richard/debs/NONINTEL/bzip2/bzip2/bzip2-1.0.6'
+   dh_strip
+   dh_makeshlibs
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'libfakeroot-sysv.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+   dh_builddeb
+dpkg-deb: building package 'libbz2-1.0' in '../libbz2-1.0_1.0.6-9_amd64.deb'.
+dpkg-deb: building package 'libbz2-1.0-dbgsym' in '../libbz2-1.0-dbgsym_1.0.6-9_amd64.deb'.
+dpkg-deb: building package 'libbz2-dev' in '../libbz2-dev_1.0.6-9_amd64.deb'.
+dpkg-deb: building package 'bzip2' in '../bzip2_1.0.6-9_amd64.deb'.
+dpkg-deb: building package 'bzip2-dbgsym' in '../bzip2-dbgsym_1.0.6-9_amd64.deb'.
+dpkg-deb: building package 'bzip2-doc' in '../bzip2-doc_1.0.6-9_all.deb'.
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../bzip2_1.0.6-9_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-source: info: using options from bzip2-1.0.6/debian/source/options: --compression=bzip2 --compression-level=9
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian bzip2_1.0.6-9_amd64.changes ...
+W: libbz2-1.0: excessive-priority-for-library-package important
+Finished running lintian.

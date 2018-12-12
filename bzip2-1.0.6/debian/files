@@ -1,0 +1,7 @@
+bzip2-dbgsym_1.0.6-9_amd64.deb debug optional automatic=yes
+bzip2-doc_1.0.6-9_all.deb doc optional
+bzip2_1.0.6-9_amd64.buildinfo utils important
+bzip2_1.0.6-9_amd64.deb utils standard
+libbz2-1.0-dbgsym_1.0.6-9_amd64.deb debug optional automatic=yes
+libbz2-1.0_1.0.6-9_amd64.deb libs important
+libbz2-dev_1.0.6-9_amd64.deb libdevel optional

@@ -1,0 +1,9 @@
+debian/tmp/man/man1/bzcmp.1
+debian/tmp/man/man1/bzdiff.1
+debian/tmp/man/man1/bzegrep.1
+debian/tmp/man/man1/bzfgrep.1
+debian/tmp/man/man1/bzgrep.1
+debian/tmp/man/man1/bzip2.1
+debian/tmp/man/man1/bzless.1
+debian/tmp/man/man1/bzmore.1
+./debian/bzexe.1

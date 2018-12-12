@@ -1,0 +1,13 @@
+Package: libbz2-1.0-dbgsym
+Source: bzip2
+Version: 1.0.6-9
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 83
+Depends: libbz2-1.0 (= 1.0.6-9)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libbz2-1.0
+Build-Ids: c5a288eca8e6876f98a53aa004b776899ea73c28

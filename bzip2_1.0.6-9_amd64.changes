@@ -1,0 +1,89 @@
+Format: 1.8
+Date: Tue, 14 Aug 2018 13:28:22 -0600
+Source: bzip2
+Binary: libbz2-1.0 libbz2-dev bzip2 bzip2-doc
+Built-For-Profiles: nobiarch nocheck
+Architecture: amd64 all
+Version: 1.0.6-9
+Distribution: unstable
+Urgency: medium
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Changed-By: Anthony Fok <foka@debian.org>
+Description:
+ bzip2      - high-quality block-sorting file compressor - utilities
+ bzip2-doc  - high-quality block-sorting file compressor - documentation
+ libbz2-1.0 - high-quality block-sorting file compressor library - runtime
+ libbz2-dev - high-quality block-sorting file compressor library - development
+Closes: 636184 905823
+Changes:
+ bzip2 (1.0.6-9) unstable; urgency=medium
+ .
+   [ Santiago Ruano Rincón ]
+   * debian/control: use secure Vcs- urls.
+   * Bump Standards-Version to 3.9.8. No changes needed.
+   * Add 40-bzdiff-l.patch: bzdiff properly passes -I option to diff.
+     Patch from Ubuntu.
+ .
+   [ Nicolas Boulenguez ]
+   * Allow -doc package to satisfy Multi-Arch: foreign dependencies.
+     Remove duplicate Section: and Priority:.
+   * Refresh patches without all timestamp noise.
+   * Document some patches.
+   * Add basic runtime test.
+   * Split bzdiff-tmpdir-spaces.diff out of 20-legacy.patch.
+   * Split bzip2recover-race-open-output.diff out of 20-legacy.patch.
+   * Standards-Version 4.1.4.
+   * Generate the manual during build instead of embedding it in a patch.
+   * Do not add trailing blank spaces in patches.
+   * Split bzexe out of 20-legacy.patch.
+     Whether bzexe is suggested upstream or maintained in Debian forever,
+     it will be easyer to manage as a normal file than as an upstream patch.
+   * Split the patch documenting --help option.
+   * Pass -D_REENTRANT via CPPFLAGS instead of a patch.
+     The patch only makes upstream handle CPPFLAGS, which may be accepted
+     independently of the shared library.
+   * Split quoting of XML special characters from 20-legacy.diff.
+   * Split the patch building a shared library and handling build flags.
+   * Fix split of bzexe, install it to /bin/.
+   * Drop Postscript documentation.
+     Regeneration of the PS/PDF files fails with interesting messages in
+     the LaTeX log. Since Debian policy recommends HTML as the default
+     documentation format, and we are able to regenerate this HTML from the
+     patched source, it is probably better to provide only this format.
+ .
+   [ Anthony Fok ]
+   * Point Vcs-* URLs to salsa.debian.org.
+   * Bump Standards-Version to 4.2.0 (no change).
+   * Change Homepage to that archived on web.archive.org because the
+     bzip.org domain has expired and may change hands, as reported
+     at https://lwn.net/Articles/762264/.  (Closes: #905823)
+   * Disable debian/watch as bzip.org has expired and may change hands.
+   * Revise bzip2 package description and remove performance comparison
+     with other compression software.  (Closes: #636184)
+   * Revert to using pristine upstream manual.{html,ps} documentation
+     without rebuilding, and install manual.pdf too.
+   * Add myself to the list of Uploaders.
+Checksums-Sha1:
+ 496b85d33c5446febad03df25e4a8ef5b66496e2 36740 bzip2-dbgsym_1.0.6-9_amd64.deb
+ 4e1ceb3bd9b20f9d6d0ee4b572bf876a7f09db1d 492524 bzip2-doc_1.0.6-9_all.deb
+ 1f9d662d977728f47f2ec8ebfc2db80717b3d768 7698 bzip2_1.0.6-9_amd64.buildinfo
+ 8b31728d4d75345c182624428c1c70f59bc150bc 48164 bzip2_1.0.6-9_amd64.deb
+ 302d1380524ad83504e36544cad1e85ab283a79e 67664 libbz2-1.0-dbgsym_1.0.6-9_amd64.deb
+ d2c712ff959e2662703a8759810ce0beb4c1d572 45024 libbz2-1.0_1.0.6-9_amd64.deb
+ dcd20d48a3ff234cf7c9037dd7a9c9cba92f39bc 30056 libbz2-dev_1.0.6-9_amd64.deb
+Checksums-Sha256:
+ 8b6789de009ef09c0739e7c11af13b03048abc23d5d5f5003c153a0038ca093e 36740 bzip2-dbgsym_1.0.6-9_amd64.deb
+ 3b1b22fd987e2840c2dd438533544407b1261730b98454f414ade2ce1729b645 492524 bzip2-doc_1.0.6-9_all.deb
+ c157afa35645f06a5cd3f29d5ff42c421071168333ce1eecd1c61db51e290bc9 7698 bzip2_1.0.6-9_amd64.buildinfo
+ 2bebdc973f815fda8edddd16e1140d48ac6d08dce7f23f2c68fe44546f60cdda 48164 bzip2_1.0.6-9_amd64.deb
+ a53b68356d05291a9be5cc14d6c64dc7d4cb924a99cb59b0afd6a46956d5da82 67664 libbz2-1.0-dbgsym_1.0.6-9_amd64.deb
+ 9e6cf709811ce6e98b8c1a6ef7c528c699d0a6200110ec9b675dc9e3f3d4082d 45024 libbz2-1.0_1.0.6-9_amd64.deb
+ d926c21a5e260d1ce43d12c89cdf1a44e627f7bdef8a15584c00b34e0a8ca897 30056 libbz2-dev_1.0.6-9_amd64.deb
+Files:
+ 12dad60f03c760882eb4d676b01bfbc1 36740 debug optional bzip2-dbgsym_1.0.6-9_amd64.deb
+ 8ad581c1e7ac39a6e07abb381711f78a 492524 doc optional bzip2-doc_1.0.6-9_all.deb
+ 482df62d442e57e8c631617d351137d6 7698 utils important bzip2_1.0.6-9_amd64.buildinfo
+ 0e43312887df8a4c91bed97e3e2cbe6b 48164 utils standard bzip2_1.0.6-9_amd64.deb
+ bfa58312d6e2d9a54effdeee6b5ed6f4 67664 debug optional libbz2-1.0-dbgsym_1.0.6-9_amd64.deb
+ 31a6e3a59b7d51c39db5d8849f91bdc1 45024 libs important libbz2-1.0_1.0.6-9_amd64.deb
+ 7ec8459e3094cad1d32ce136781681f9 30056 libdevel optional libbz2-dev_1.0.6-9_amd64.deb

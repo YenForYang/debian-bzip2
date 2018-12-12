@@ -1,0 +1,12 @@
+Package: bzip2-dbgsym
+Source: bzip2
+Version: 1.0.6-9
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 60
+Depends: bzip2 (= 1.0.6-9)
+Section: debug
+Priority: optional
+Description: debug symbols for bzip2
+Build-Ids: 60b6ba022f3e6ac84b5bb0680364c9eb738f25db c7a17bcfe34852c7ddea47ccc855801cf4de369f
